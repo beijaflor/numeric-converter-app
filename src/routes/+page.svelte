@@ -25,6 +25,17 @@
 				}
 				return ret;
 			}
+		},
+		{
+			label: 'binary',
+			decoder: (v: number) => v.toString(2).toUpperCase(),
+			encoder: (v: string) => {
+				const ret = parseInt(v, 2);
+				if (Number.isNaN(ret)) {
+					throw new Error('parse error');
+				}
+				return ret;
+			}
 		}
 	];
 
