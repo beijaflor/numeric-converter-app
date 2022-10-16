@@ -1,6 +1,8 @@
 import adapter from '@sveltejs/adapter-static';
 import preprocess from 'svelte-preprocess';
 
+console.log(process.env.BUILD_PATH);
+
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	// Consult https://github.com/sveltejs/svelte-preprocess
@@ -15,7 +17,7 @@ const config = {
 			precompress: false
 		}),
 		paths: {
-			base: process.env.BUILD_PATH
+			base: `/${process.env.BUILD_PATH}`
 		},
 		// If you are not using a .nojekyll file, change your appDir to something not starting with an underscore.
 		// For example, instead of '_app', use 'app_', 'internal', etc.
