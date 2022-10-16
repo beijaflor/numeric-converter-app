@@ -35,7 +35,7 @@
 
 <label class="input-component">
 	<span class="label-text">{label}</span>
-	<input class="input" value={decoder(value)} on:input={inputHandler} data-testid={label} />
+	<input class="input" value={decoder(value)} on:input={inputHandler} />
 </label>
 
 <style>
