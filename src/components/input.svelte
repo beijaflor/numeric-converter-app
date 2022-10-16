@@ -5,12 +5,16 @@
 	export let value: number;
 	export let decoder: (value: number) => string;
 	export let encoder: (value: string) => number;
+	export let validator: (value: string) => boolean;
 
 	let innerValue: string;
 	const dispatch = createEventDispatcher();
 
 	const inputHandler = (v: Event & { currentTarget: HTMLInputElement }) => {
 		try {
+			if (!validator(v.currentTarget.value)) {
+				throw new Error('wrong input');
+			}
 			if (v.currentTarget.value === '') {
 				v.currentTarget.value = decoder(0);
 				dispatch('update', { value: 0 });

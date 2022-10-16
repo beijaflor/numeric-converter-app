@@ -13,7 +13,8 @@
 					throw new Error('parse error');
 				}
 				return ret;
-			}
+			},
+			validator: (v: string) => !v.split('').some((c) => !c.match(/[0-9]/))
 		},
 		{
 			label: 'hex',
@@ -24,7 +25,8 @@
 					throw new Error('parse error');
 				}
 				return ret;
-			}
+			},
+			validator: (v: string) => !v.split('').some((c) => !c.match(/[0-9a-fA-F]/))
 		},
 		{
 			label: 'binary',
@@ -35,7 +37,8 @@
 					throw new Error('parse error');
 				}
 				return ret;
-			}
+			},
+			validator: (v: string) => !v.split('').some((c) => !c.match(/[0-1]/))
 		}
 	];
 
